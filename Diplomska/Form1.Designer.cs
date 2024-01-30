@@ -32,40 +32,52 @@
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Game1");
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Game2");
             this.recordsListView = new System.Windows.Forms.ListView();
-            this.addRecordButton = new System.Windows.Forms.Button();
+            this.championImageList = new System.Windows.Forms.ImageList(this.components);
+            this.newMatchButton = new System.Windows.Forms.Button();
             this.removeRecordButton = new System.Windows.Forms.Button();
             this.editRecordButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.championImageList = new System.Windows.Forms.ImageList(this.components);
+            this.championColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dateColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // recordsListView
             // 
+            this.recordsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.championColumnHeader,
+            this.dateColumnHeader});
+            this.recordsListView.Dock = System.Windows.Forms.DockStyle.Left;
             this.recordsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.recordsListView.FullRowSelect = true;
             this.recordsListView.HideSelection = false;
             this.recordsListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2});
-            this.recordsListView.Location = new System.Drawing.Point(12, 48);
+            this.recordsListView.Location = new System.Drawing.Point(0, 0);
             this.recordsListView.MultiSelect = false;
             this.recordsListView.Name = "recordsListView";
-            this.recordsListView.Size = new System.Drawing.Size(911, 613);
+            this.recordsListView.Size = new System.Drawing.Size(911, 661);
             this.recordsListView.SmallImageList = this.championImageList;
             this.recordsListView.TabIndex = 0;
             this.recordsListView.TileSize = new System.Drawing.Size(600, 50);
             this.recordsListView.UseCompatibleStateImageBehavior = false;
-            this.recordsListView.View = System.Windows.Forms.View.List;
+            this.recordsListView.View = System.Windows.Forms.View.Details;
             // 
-            // addRecordButton
+            // championImageList
             // 
-            this.addRecordButton.Location = new System.Drawing.Point(6, 19);
-            this.addRecordButton.Name = "addRecordButton";
-            this.addRecordButton.Size = new System.Drawing.Size(75, 23);
-            this.addRecordButton.TabIndex = 1;
-            this.addRecordButton.Text = "Add";
-            this.addRecordButton.UseVisualStyleBackColor = true;
+            this.championImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.championImageList.ImageSize = new System.Drawing.Size(16, 16);
+            this.championImageList.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // newMatchButton
+            // 
+            this.newMatchButton.Location = new System.Drawing.Point(6, 19);
+            this.newMatchButton.Name = "newMatchButton";
+            this.newMatchButton.Size = new System.Drawing.Size(75, 23);
+            this.newMatchButton.TabIndex = 1;
+            this.newMatchButton.Text = "New match";
+            this.newMatchButton.UseVisualStyleBackColor = true;
             // 
             // removeRecordButton
             // 
@@ -87,7 +99,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.addRecordButton);
+            this.groupBox1.Controls.Add(this.newMatchButton);
             this.groupBox1.Controls.Add(this.editRecordButton);
             this.groupBox1.Controls.Add(this.removeRecordButton);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
@@ -98,11 +110,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // championImageList
+            // championColumnHeader
             // 
-            this.championImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.championImageList.ImageSize = new System.Drawing.Size(16, 16);
-            this.championImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.championColumnHeader.Text = "Champion";
+            this.championColumnHeader.Width = 127;
+            // 
+            // dateColumnHeader
+            // 
+            this.dateColumnHeader.Text = "Date";
+            this.dateColumnHeader.Width = 780;
             // 
             // Form1
             // 
@@ -121,11 +137,13 @@
         #endregion
 
         private System.Windows.Forms.ListView recordsListView;
-        private System.Windows.Forms.Button addRecordButton;
+        private System.Windows.Forms.Button newMatchButton;
         private System.Windows.Forms.Button removeRecordButton;
         private System.Windows.Forms.Button editRecordButton;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ImageList championImageList;
+        private System.Windows.Forms.ColumnHeader championColumnHeader;
+        private System.Windows.Forms.ColumnHeader dateColumnHeader;
     }
 }
 

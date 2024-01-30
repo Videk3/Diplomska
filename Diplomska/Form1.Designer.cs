@@ -28,24 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Game1");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Game2");
+            this.recordsListView = new System.Windows.Forms.ListView();
             this.addRecordButton = new System.Windows.Forms.Button();
             this.removeRecordButton = new System.Windows.Forms.Button();
             this.editRecordButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.championImageList = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listView1
+            // recordsListView
             // 
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(0, 0);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(923, 661);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.List;
+            this.recordsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recordsListView.FullRowSelect = true;
+            this.recordsListView.HideSelection = false;
+            this.recordsListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2});
+            this.recordsListView.Location = new System.Drawing.Point(12, 48);
+            this.recordsListView.MultiSelect = false;
+            this.recordsListView.Name = "recordsListView";
+            this.recordsListView.Size = new System.Drawing.Size(911, 613);
+            this.recordsListView.SmallImageList = this.championImageList;
+            this.recordsListView.TabIndex = 0;
+            this.recordsListView.TileSize = new System.Drawing.Size(600, 50);
+            this.recordsListView.UseCompatibleStateImageBehavior = false;
+            this.recordsListView.View = System.Windows.Forms.View.List;
             // 
             // addRecordButton
             // 
@@ -87,13 +98,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
+            // championImageList
+            // 
+            this.championImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.championImageList.ImageSize = new System.Drawing.Size(16, 16);
+            this.championImageList.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 661);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.recordsListView);
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
@@ -103,11 +120,12 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView recordsListView;
         private System.Windows.Forms.Button addRecordButton;
         private System.Windows.Forms.Button removeRecordButton;
         private System.Windows.Forms.Button editRecordButton;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ImageList championImageList;
     }
 }
 

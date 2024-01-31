@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.matchDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.roleComboBox = new System.Windows.Forms.ComboBox();
             this.championComboBox = new System.Windows.Forms.ComboBox();
             this.summonerSpellComboBox1 = new System.Windows.Forms.ComboBox();
@@ -70,12 +70,12 @@
             this.itemsCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // matchDateTimePicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(134, 12);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 0;
+            this.matchDateTimePicker.Location = new System.Drawing.Point(134, 12);
+            this.matchDateTimePicker.Name = "matchDateTimePicker";
+            this.matchDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.matchDateTimePicker.TabIndex = 0;
             // 
             // roleComboBox
             // 
@@ -444,7 +444,7 @@
             this.Controls.Add(this.summonerSpellComboBox1);
             this.Controls.Add(this.championComboBox);
             this.Controls.Add(this.roleComboBox);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.matchDateTimePicker);
             this.Name = "AddMatchForm";
             this.Text = "AddMatchForm";
             this.ResumeLayout(false);
@@ -454,7 +454,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker matchDateTimePicker;
         private System.Windows.Forms.ComboBox roleComboBox;
         private System.Windows.Forms.ComboBox championComboBox;
         private System.Windows.Forms.ComboBox summonerSpellComboBox1;

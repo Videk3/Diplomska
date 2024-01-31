@@ -49,5 +49,55 @@ namespace Diplomska
             Disconnect();
             return vrni;
         }
+        public List<Champion> GetChampions()
+        {
+            List<Champion> vrni = new List<Champion>();
+            Connect();
+            NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM champions;", con);
+            NpgsqlDataReader reader = com.ExecuteReader();
+            while (reader.Read())
+            {
+                vrni.Add(new Champion(reader.GetInt32(0), reader.GetString(1)));
+            }
+            Disconnect();
+            return vrni;
+        }
+        public List<Role> GetRoles()
+        {
+            List<Role> vrni = new List<Role>();
+            Connect();
+            NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM roles;", con);
+            NpgsqlDataReader reader = com.ExecuteReader();
+            while (reader.Read())
+            {
+                vrni.Add(new Role(reader.GetInt32(0), reader.GetString(1)));
+            }
+            Disconnect();
+            return vrni;
+        }
+        public List<SummonerSpell> GetSummonerSpells()
+        {
+            List<SummonerSpell> vrni = new List<SummonerSpell>();
+            Connect();
+            NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM summoner_spells;", con);
+            NpgsqlDataReader reader = com.ExecuteReader();
+            while (reader.Read())
+            {
+                vrni.Add(new SummonerSpell(reader.GetInt32(0), reader.GetString(1)));
+            }
+            Disconnect();
+            return vrni;
+        }
+        public List<Match> GetMatches()
+        {
+            List<Match> vrni = new List<Match>();
+            Connect();
+            NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM matches;", con);
+            NpgsqlDataReader reader = com.ExecuteReader();
+            while (reader.Read())
+            {
+                vrni.Add(new Match(reader.GetInt32(0), reader.GetDateTime(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetInt32(5), reader.GetInt32(6),
+                    reader.GetInt32(7), reader.GetInt32(8), reader.GetInt32(9), reader.GetString(10), reader.GetString(11), reader.GetInt32(12), reader.GetInt32(13), reader.GetInt32(14), reader.GetInt32(15), reader.GetInt32(16)));
+            }
     }
 }

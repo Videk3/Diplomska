@@ -15,6 +15,7 @@ namespace Diplomska
         public AddMatchForm()
         {
             InitializeComponent();
+
         }
     }
 }

@@ -21,22 +21,23 @@ namespace Diplomska
             List<SummonerSpell> summonerSpells = db.GetSummonerSpells();
             foreach (Champion champion in champions)
             {
-                championComboBox.Items.Add(champion);
-                enemyTopComboBox.Items.Add(champion);
-                enemyJungleComboBox.Items.Add(champion);
-                enemyMidComboBox.Items.Add(champion);
-                enemyAdcComboBox.Items.Add(champion);
-                enemySupportComboBox.Items.Add(champion);
+                championComboBox.Items.Add(champion.Name);
+                enemyTopComboBox.Items.Add(champion.Name);
+                enemyJungleComboBox.Items.Add(champion.Name);
+                enemyMidComboBox.Items.Add(champion.Name);
+                enemyAdcComboBox.Items.Add(champion.Name);
+                enemySupportComboBox.Items.Add(champion.Name);
             }
             foreach (Role role in roles)
             {
-                roleComboBox.Items.Add(role);
+                roleComboBox.Items.Add(role.Name);
             }
             foreach (SummonerSpell summonerSpell in summonerSpells)
             {
-                summonerSpell1ComboBox.Items.Add(summonerSpell);
-                summonerSpell2ComboBox.Items.Add(summonerSpell);
+                summonerSpell1ComboBox.Items.Add(summonerSpell.Name);
+                summonerSpell2ComboBox.Items.Add(summonerSpell.Name);
             }
+
         }
 
         private void TextBoxes_KeyPress(object sender, KeyPressEventArgs e)

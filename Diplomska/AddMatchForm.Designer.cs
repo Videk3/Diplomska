@@ -285,6 +285,7 @@
             this.matchLenghtTextBox.Name = "matchLenghtTextBox";
             this.matchLenghtTextBox.Size = new System.Drawing.Size(100, 20);
             this.matchLenghtTextBox.TabIndex = 26;
+            this.matchLenghtTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxes_KeyPress);
             // 
             // drakeTextBox
             // 

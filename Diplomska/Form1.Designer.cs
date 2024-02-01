@@ -32,13 +32,13 @@
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Game1");
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Game2");
             this.recordsListView = new System.Windows.Forms.ListView();
+            this.championColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dateColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.championImageList = new System.Windows.Forms.ImageList(this.components);
             this.newMatchButton = new System.Windows.Forms.Button();
             this.removeRecordButton = new System.Windows.Forms.Button();
             this.editRecordButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.championColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.dateColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +64,16 @@
             this.recordsListView.UseCompatibleStateImageBehavior = false;
             this.recordsListView.View = System.Windows.Forms.View.Details;
             // 
+            // championColumnHeader
+            // 
+            this.championColumnHeader.Text = "Champion";
+            this.championColumnHeader.Width = 127;
+            // 
+            // dateColumnHeader
+            // 
+            this.dateColumnHeader.Text = "Date";
+            this.dateColumnHeader.Width = 780;
+            // 
             // championImageList
             // 
             this.championImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
@@ -78,6 +88,7 @@
             this.newMatchButton.TabIndex = 1;
             this.newMatchButton.Text = "New match";
             this.newMatchButton.UseVisualStyleBackColor = true;
+            this.newMatchButton.Click += new System.EventHandler(this.newMatchButton_Click);
             // 
             // removeRecordButton
             // 
@@ -109,16 +120,6 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
-            // 
-            // championColumnHeader
-            // 
-            this.championColumnHeader.Text = "Champion";
-            this.championColumnHeader.Width = 127;
-            // 
-            // dateColumnHeader
-            // 
-            this.dateColumnHeader.Text = "Date";
-            this.dateColumnHeader.Width = 780;
             // 
             // Form1
             // 

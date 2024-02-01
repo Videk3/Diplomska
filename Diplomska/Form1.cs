@@ -16,5 +16,11 @@ namespace Diplomska
         {
             InitializeComponent();
         }
+
+        private void newMatchButton_Click(object sender, EventArgs e)
+        {
+            AddMatchForm addMatchForm = new AddMatchForm();
+            addMatchForm.Show();
+        }
     }
 }

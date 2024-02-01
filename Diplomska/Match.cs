@@ -23,9 +23,10 @@ namespace Diplomska
         public int Drake { get; set; }
         public int RiftHerald { get; set; }
         public int Baron { get; set; }
-        public int EnemyTeam { get; set; } //WIP
+        public int EnemyTeam { get; set; }
+        public bool Win { get; set; }
 
-        public Match(int id, Champion champion, Role role, SummonerSpell summonerSpell1, SummonerSpell summonerSpell2, int kills, int deaths, int assists)
+        public Match(int id, Champion champion, Role role, SummonerSpell summonerSpell1, SummonerSpell summonerSpell2, int kills, int deaths, int assists, DateTime date, int creepScore, int visionScore, int matchLenght, int drake, int riftHerald, int baron, bool win)
         {
             Id = id;
             Champion = champion;
@@ -35,6 +36,14 @@ namespace Diplomska
             Kills = kills;
             Deaths = deaths;
             Assists = assists;
+            Date = date;
+            CreepScore = creepScore;
+            VisionScore = visionScore;
+            MatchLength = matchLenght;
+            Drake = drake;
+            RiftHerald = riftHerald;
+            Baron = baron;
+            Win = win;
         }
     }
 }

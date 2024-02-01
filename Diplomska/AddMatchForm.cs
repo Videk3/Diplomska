@@ -19,6 +19,7 @@ namespace Diplomska
             List<Champion> champions = db.GetChampions();
             List<Role> roles = db.GetRoles();
             List<SummonerSpell> summonerSpells = db.GetSummonerSpells();
+            List<string> items = db.GetItems();
             foreach (Champion champion in champions)
             {
                 championComboBox.Items.Add(champion.Name);
@@ -37,7 +38,10 @@ namespace Diplomska
                 summonerSpell1ComboBox.Items.Add(summonerSpell.Name);
                 summonerSpell2ComboBox.Items.Add(summonerSpell.Name);
             }
-
+            foreach (string item in items)
+            {
+                itemsCheckedListBox.Items.Add(item);
+            }
         }
 
         private void TextBoxes_KeyPress(object sender, KeyPressEventArgs e)
@@ -45,6 +49,14 @@ namespace Diplomska
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void itemsCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if(itemsCheckedListBox.CheckedItems.Count >= 6)
+            {
+                e.NewValue = CheckState.Unchecked;
             }
         }
     }

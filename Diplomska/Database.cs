@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -150,6 +151,22 @@ namespace Diplomska
                     SummonerSpell summonerSpell1 = GetSummonerSpell(reader.GetInt32(3));
                     SummonerSpell summonerSpell2 = GetSummonerSpell(reader.GetInt32(4));
                     vrni.Add(new Match(reader.GetInt32(0), champ, role, summonerSpell1, summonerSpell2, reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetDateTime(8), reader.GetInt32(9), reader.GetInt32(10), reader.GetInt32(11), reader.GetInt32(12), reader.GetInt32(13), reader.GetInt32(14), reader.GetBoolean(15)));
+                }
+                con.Close();
+                return vrni;
+            }
+        }
+        public List<string> GetItems()
+        {
+            List<string> vrni = new List<string>();
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT item_name FROM items;", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    vrni.Add(reader.GetString(0));
                 }
                 con.Close();
                 return vrni;

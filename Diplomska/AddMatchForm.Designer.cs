@@ -31,8 +31,8 @@
             this.matchDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.roleComboBox = new System.Windows.Forms.ComboBox();
             this.championComboBox = new System.Windows.Forms.ComboBox();
-            this.summonerSpellComboBox1 = new System.Windows.Forms.ComboBox();
-            this.summonerSpellComboBox2 = new System.Windows.Forms.ComboBox();
+            this.summonerSpell1ComboBox = new System.Windows.Forms.ComboBox();
+            this.summonerSpell2ComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -93,21 +93,21 @@
             this.championComboBox.Size = new System.Drawing.Size(200, 21);
             this.championComboBox.TabIndex = 3;
             // 
-            // summonerSpellComboBox1
+            // summonerSpell1ComboBox
             // 
-            this.summonerSpellComboBox1.FormattingEnabled = true;
-            this.summonerSpellComboBox1.Location = new System.Drawing.Point(134, 93);
-            this.summonerSpellComboBox1.Name = "summonerSpellComboBox1";
-            this.summonerSpellComboBox1.Size = new System.Drawing.Size(200, 21);
-            this.summonerSpellComboBox1.TabIndex = 4;
+            this.summonerSpell1ComboBox.FormattingEnabled = true;
+            this.summonerSpell1ComboBox.Location = new System.Drawing.Point(134, 93);
+            this.summonerSpell1ComboBox.Name = "summonerSpell1ComboBox";
+            this.summonerSpell1ComboBox.Size = new System.Drawing.Size(200, 21);
+            this.summonerSpell1ComboBox.TabIndex = 4;
             // 
-            // summonerSpellComboBox2
+            // summonerSpell2ComboBox
             // 
-            this.summonerSpellComboBox2.FormattingEnabled = true;
-            this.summonerSpellComboBox2.Location = new System.Drawing.Point(134, 121);
-            this.summonerSpellComboBox2.Name = "summonerSpellComboBox2";
-            this.summonerSpellComboBox2.Size = new System.Drawing.Size(200, 21);
-            this.summonerSpellComboBox2.TabIndex = 5;
+            this.summonerSpell2ComboBox.FormattingEnabled = true;
+            this.summonerSpell2ComboBox.Location = new System.Drawing.Point(134, 121);
+            this.summonerSpell2ComboBox.Name = "summonerSpell2ComboBox";
+            this.summonerSpell2ComboBox.Size = new System.Drawing.Size(200, 21);
+            this.summonerSpell2ComboBox.TabIndex = 5;
             // 
             // label1
             // 
@@ -245,6 +245,7 @@
             this.killsTextBox.Name = "killsTextBox";
             this.killsTextBox.Size = new System.Drawing.Size(100, 20);
             this.killsTextBox.TabIndex = 21;
+            this.killsTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxes_KeyPress);
             // 
             // deathsTextBox
             // 
@@ -252,6 +253,7 @@
             this.deathsTextBox.Name = "deathsTextBox";
             this.deathsTextBox.Size = new System.Drawing.Size(100, 20);
             this.deathsTextBox.TabIndex = 22;
+            this.deathsTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxes_KeyPress);
             // 
             // assistsTextBox
             // 
@@ -259,6 +261,7 @@
             this.assistsTextBox.Name = "assistsTextBox";
             this.assistsTextBox.Size = new System.Drawing.Size(100, 20);
             this.assistsTextBox.TabIndex = 23;
+            this.assistsTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxes_KeyPress);
             // 
             // creepScoreTextBox
             // 
@@ -266,6 +269,7 @@
             this.creepScoreTextBox.Name = "creepScoreTextBox";
             this.creepScoreTextBox.Size = new System.Drawing.Size(100, 20);
             this.creepScoreTextBox.TabIndex = 24;
+            this.creepScoreTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxes_KeyPress);
             // 
             // visionScoreTextBox
             // 
@@ -273,6 +277,7 @@
             this.visionScoreTextBox.Name = "visionScoreTextBox";
             this.visionScoreTextBox.Size = new System.Drawing.Size(100, 20);
             this.visionScoreTextBox.TabIndex = 25;
+            this.visionScoreTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxes_KeyPress);
             // 
             // matchLenghtTextBox
             // 
@@ -287,6 +292,7 @@
             this.drakeTextBox.Name = "drakeTextBox";
             this.drakeTextBox.Size = new System.Drawing.Size(100, 20);
             this.drakeTextBox.TabIndex = 27;
+            this.drakeTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxes_KeyPress);
             // 
             // riftHeraldTextBox
             // 
@@ -294,6 +300,7 @@
             this.riftHeraldTextBox.Name = "riftHeraldTextBox";
             this.riftHeraldTextBox.Size = new System.Drawing.Size(100, 20);
             this.riftHeraldTextBox.TabIndex = 28;
+            this.riftHeraldTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxes_KeyPress);
             // 
             // baronTextBox
             // 
@@ -301,6 +308,7 @@
             this.baronTextBox.Name = "baronTextBox";
             this.baronTextBox.Size = new System.Drawing.Size(100, 20);
             this.baronTextBox.TabIndex = 29;
+            this.baronTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxes_KeyPress);
             // 
             // label11
             // 
@@ -440,8 +448,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.summonerSpellComboBox2);
-            this.Controls.Add(this.summonerSpellComboBox1);
+            this.Controls.Add(this.summonerSpell2ComboBox);
+            this.Controls.Add(this.summonerSpell1ComboBox);
             this.Controls.Add(this.championComboBox);
             this.Controls.Add(this.roleComboBox);
             this.Controls.Add(this.matchDateTimePicker);
@@ -457,8 +465,8 @@
         private System.Windows.Forms.DateTimePicker matchDateTimePicker;
         private System.Windows.Forms.ComboBox roleComboBox;
         private System.Windows.Forms.ComboBox championComboBox;
-        private System.Windows.Forms.ComboBox summonerSpellComboBox1;
-        private System.Windows.Forms.ComboBox summonerSpellComboBox2;
+        private System.Windows.Forms.ComboBox summonerSpell1ComboBox;
+        private System.Windows.Forms.ComboBox summonerSpell2ComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

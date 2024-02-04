@@ -68,6 +68,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.addMatchButton = new System.Windows.Forms.Button();
             this.itemsCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.winCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // matchDateTimePicker
@@ -400,6 +401,7 @@
             this.addMatchButton.TabIndex = 40;
             this.addMatchButton.Text = "Add";
             this.addMatchButton.UseVisualStyleBackColor = true;
+            this.addMatchButton.Click += new System.EventHandler(this.addMatchButton_Click);
             // 
             // itemsCheckedListBox
             // 
@@ -410,11 +412,22 @@
             this.itemsCheckedListBox.TabIndex = 41;
             this.itemsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.itemsCheckedListBox_ItemCheck);
             // 
+            // winCheckBox
+            // 
+            this.winCheckBox.AutoSize = true;
+            this.winCheckBox.Location = new System.Drawing.Point(429, 282);
+            this.winCheckBox.Name = "winCheckBox";
+            this.winCheckBox.Size = new System.Drawing.Size(45, 17);
+            this.winCheckBox.TabIndex = 42;
+            this.winCheckBox.Text = "Win";
+            this.winCheckBox.UseVisualStyleBackColor = true;
+            // 
             // AddMatchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1075, 450);
+            this.Controls.Add(this.winCheckBox);
             this.Controls.Add(this.itemsCheckedListBox);
             this.Controls.Add(this.addMatchButton);
             this.Controls.Add(this.label19);
@@ -504,5 +517,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button addMatchButton;
         private System.Windows.Forms.CheckedListBox itemsCheckedListBox;
+        private System.Windows.Forms.CheckBox winCheckBox;
     }
 }

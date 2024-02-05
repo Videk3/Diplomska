@@ -13,8 +13,10 @@ namespace Diplomska
     public partial class EditMatchForm : Form
     {
         Database db = new Database();
-        public EditMatchForm()
+        int match_id;
+        public EditMatchForm(int id)
         {
+            match_id = id;
             InitializeComponent();
             List<Champion> champions = db.GetChampions();
             List<Role> roles = db.GetRoles();
@@ -42,6 +44,37 @@ namespace Diplomska
             {
                 itemsCheckedListBox.Items.Add(item);
             }
+            FillData(match_id);
+        }
+        //WIP
+        private void FillData(int id)
+        {
+            Match match = db.GetMatch(id);
+            championComboBox.Text = match.Champion.Name;
+            matchDateTimePicker.Value = match.Date;
+            killsTextBox.Text = match.Kills.ToString();
+            deathsTextBox.Text = match.Deaths.ToString();
+            assistsTextBox.Text = match.Assists.ToString();
+            creepScoreTextBox.Text = match.CreepScore.ToString();
+            visionScoreTextBox.Text = match.VisionScore.ToString();
+            matchLenghtTextBox.Text = match.MatchLength.ToString();
+            winCheckBox.Checked = match.Win;
+            roleComboBox.SelectedItem = match.Role.Name;
+            summonerSpell1ComboBox.SelectedItem = match.SummonerSpell1.Name;
+            summonerSpell2ComboBox.SelectedItem = match.SummonerSpell2.Name;
+            List<Champion> enemyTeam = db.GetEnemyTeamByMatch(match);
+            enemyTopComboBox.Text = enemyTeam.ElementAt(0).Name.ToString();
+            enemyJungleComboBox.Text = enemyTeam.ElementAt(1).Name.ToString();
+            enemyMidComboBox.Text = enemyTeam.ElementAt(2).Name.ToString();
+            enemyAdcComboBox.Text = enemyTeam.ElementAt(3).Name.ToString();
+            enemySupportComboBox.Text = enemyTeam.ElementAt(4).Name.ToString();
+            
+            /*
+            foreach (string item in match.Items)
+            {
+                itemsCheckedListBox.SetItemChecked(itemsCheckedListBox.Items.IndexOf(item), true);
+            }
+            */
         }
         private void TextBoxes_KeyPress(object sender, KeyPressEventArgs e)
         {

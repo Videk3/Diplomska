@@ -62,5 +62,15 @@ namespace Diplomska
                 db.RemoveMatch(id);
             }
         }
+
+        private void editRecordButton_Click(object sender, EventArgs e)
+        {
+            if (recordsListView.SelectedItems.Count > 0)
+            {
+                int id = (int)recordsListView.SelectedItems[0].Tag;
+                EditMatchForm editMatchForm = new EditMatchForm(id);
+                editMatchForm.Show();
+            }
+        }
     }
 }

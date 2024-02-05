@@ -32,11 +32,6 @@
             this.recordsListView = new System.Windows.Forms.ListView();
             this.championColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.championImageList = new System.Windows.Forms.ImageList(this.components);
-            this.newMatchButton = new System.Windows.Forms.Button();
-            this.removeRecordButton = new System.Windows.Forms.Button();
-            this.editRecordButton = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.killsColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.deathsColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.assistsColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -45,6 +40,11 @@
             this.matchLenghtColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.winColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.roleColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.championImageList = new System.Windows.Forms.ImageList(this.components);
+            this.newMatchButton = new System.Windows.Forms.Button();
+            this.removeRecordButton = new System.Windows.Forms.Button();
+            this.editRecordButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.refreshButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -85,55 +85,6 @@
             this.dateColumnHeader.Text = "Date";
             this.dateColumnHeader.Width = 57;
             // 
-            // championImageList
-            // 
-            this.championImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.championImageList.ImageSize = new System.Drawing.Size(16, 16);
-            this.championImageList.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // newMatchButton
-            // 
-            this.newMatchButton.Location = new System.Drawing.Point(6, 19);
-            this.newMatchButton.Name = "newMatchButton";
-            this.newMatchButton.Size = new System.Drawing.Size(75, 23);
-            this.newMatchButton.TabIndex = 1;
-            this.newMatchButton.Text = "New match";
-            this.newMatchButton.UseVisualStyleBackColor = true;
-            this.newMatchButton.Click += new System.EventHandler(this.newMatchButton_Click);
-            // 
-            // removeRecordButton
-            // 
-            this.removeRecordButton.Location = new System.Drawing.Point(6, 48);
-            this.removeRecordButton.Name = "removeRecordButton";
-            this.removeRecordButton.Size = new System.Drawing.Size(75, 23);
-            this.removeRecordButton.TabIndex = 2;
-            this.removeRecordButton.Text = "Remove";
-            this.removeRecordButton.UseVisualStyleBackColor = true;
-            this.removeRecordButton.Click += new System.EventHandler(this.removeRecordButton_Click);
-            // 
-            // editRecordButton
-            // 
-            this.editRecordButton.Location = new System.Drawing.Point(6, 77);
-            this.editRecordButton.Name = "editRecordButton";
-            this.editRecordButton.Size = new System.Drawing.Size(75, 23);
-            this.editRecordButton.TabIndex = 3;
-            this.editRecordButton.Text = "Edit";
-            this.editRecordButton.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.refreshButton);
-            this.groupBox1.Controls.Add(this.newMatchButton);
-            this.groupBox1.Controls.Add(this.editRecordButton);
-            this.groupBox1.Controls.Add(this.removeRecordButton);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox1.Location = new System.Drawing.Point(929, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(255, 661);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
             // killsColumnHeader
             // 
             this.killsColumnHeader.Text = "Kills";
@@ -173,6 +124,56 @@
             // 
             this.roleColumnHeader.Text = "Role";
             this.roleColumnHeader.Width = 227;
+            // 
+            // championImageList
+            // 
+            this.championImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.championImageList.ImageSize = new System.Drawing.Size(16, 16);
+            this.championImageList.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // newMatchButton
+            // 
+            this.newMatchButton.Location = new System.Drawing.Point(6, 19);
+            this.newMatchButton.Name = "newMatchButton";
+            this.newMatchButton.Size = new System.Drawing.Size(75, 23);
+            this.newMatchButton.TabIndex = 1;
+            this.newMatchButton.Text = "New match";
+            this.newMatchButton.UseVisualStyleBackColor = true;
+            this.newMatchButton.Click += new System.EventHandler(this.newMatchButton_Click);
+            // 
+            // removeRecordButton
+            // 
+            this.removeRecordButton.Location = new System.Drawing.Point(6, 48);
+            this.removeRecordButton.Name = "removeRecordButton";
+            this.removeRecordButton.Size = new System.Drawing.Size(75, 23);
+            this.removeRecordButton.TabIndex = 2;
+            this.removeRecordButton.Text = "Remove";
+            this.removeRecordButton.UseVisualStyleBackColor = true;
+            this.removeRecordButton.Click += new System.EventHandler(this.removeRecordButton_Click);
+            // 
+            // editRecordButton
+            // 
+            this.editRecordButton.Location = new System.Drawing.Point(6, 77);
+            this.editRecordButton.Name = "editRecordButton";
+            this.editRecordButton.Size = new System.Drawing.Size(75, 23);
+            this.editRecordButton.TabIndex = 3;
+            this.editRecordButton.Text = "Edit";
+            this.editRecordButton.UseVisualStyleBackColor = true;
+            this.editRecordButton.Click += new System.EventHandler(this.editRecordButton_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.refreshButton);
+            this.groupBox1.Controls.Add(this.newMatchButton);
+            this.groupBox1.Controls.Add(this.editRecordButton);
+            this.groupBox1.Controls.Add(this.removeRecordButton);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox1.Location = new System.Drawing.Point(929, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(255, 661);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
             // 
             // refreshButton
             // 

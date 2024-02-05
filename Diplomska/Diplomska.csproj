@@ -103,6 +103,12 @@
     </Compile>
     <Compile Include="Champion.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="EditMatchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditMatchForm.Designer.cs">
+      <DependentUpon>EditMatchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     <Compile Include="SummonerSpell.cs" />
     <EmbeddedResource Include="AddMatchForm.resx">
       <DependentUpon>AddMatchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMatchForm.resx">
+      <DependentUpon>EditMatchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

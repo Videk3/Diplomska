@@ -209,6 +209,16 @@ namespace Diplomska
                 return vrni;
             }
         }
+        public void RemoveMatch(int id)
+        {
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("DELETE FROM matches WHERE match_id = " + id + ";", con);
+                com.ExecuteNonQuery();
+                con.Close();
+            }
+        }
         public List<string> GetItems()
         {
             List<string> vrni = new List<string>();

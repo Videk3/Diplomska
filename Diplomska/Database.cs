@@ -209,6 +209,27 @@ namespace Diplomska
                 return vrni;
             }
         }
+        public Match GetMatch(int id)
+        {
+            Match vrni = new Match();
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT match_id, champion_id, role_id, summoner_spell1_id, summoner_spell2_id, kills, deaths, assists, date, creep_score, vision_score, match_lenght, drake, rift_herald, baron, win " +
+                    "FROM matches WHERE(match_id = " + id + ");", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    Champion champ = GetChampion(reader.GetInt32(0));
+                    Role role = GetRole(reader.GetInt32(2));
+                    SummonerSpell summonerSpell1 = GetSummonerSpell(reader.GetInt32(3));
+                    SummonerSpell summonerSpell2 = GetSummonerSpell(reader.GetInt32(4));
+                    vrni = new Match(reader.GetInt32(0), champ, role, summonerSpell1, summonerSpell2, reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetDateTime(8), reader.GetInt32(9), reader.GetInt32(10), reader.GetInt32(11), reader.GetInt32(12), reader.GetInt32(13), reader.GetInt32(14), reader.GetBoolean(15));
+                }
+                con.Close();
+                return vrni;
+            }
+        }
         public void RemoveMatch(int id)
         {
             using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))

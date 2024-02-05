@@ -109,6 +109,7 @@
             this.removeRecordButton.TabIndex = 2;
             this.removeRecordButton.Text = "Remove";
             this.removeRecordButton.UseVisualStyleBackColor = true;
+            this.removeRecordButton.Click += new System.EventHandler(this.removeRecordButton_Click);
             // 
             // editRecordButton
             // 
@@ -181,6 +182,7 @@
             this.refreshButton.TabIndex = 4;
             this.refreshButton.Text = "Refresh";
             this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // Form1
             // 

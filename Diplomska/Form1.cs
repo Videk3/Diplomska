@@ -27,10 +27,12 @@ namespace Diplomska
         }
         public void RefreshData()
         {
+            recordsListView.Items.Clear();
             matches = db.GetMatches();
             foreach (Match match in matches)
             {
                    ListViewItem item = new ListViewItem();
+                item.Tag = match.Id;
                 item.Text = match.Champion.Name.ToString();
                 item.SubItems.Add(match.Date.ToString());
                 item.SubItems.Add(match.Kills.ToString());
@@ -45,6 +47,20 @@ namespace Diplomska
                 recordsListView.Items.Add(item);
             }
             recordsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void removeRecordButton_Click(object sender, EventArgs e)
+        {
+            if (recordsListView.SelectedItems.Count > 0)
+            {
+                int id = (int)recordsListView.SelectedItems[0].Tag;
+                db.RemoveMatch(id);
+            }
         }
     }
 }

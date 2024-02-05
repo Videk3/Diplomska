@@ -26,10 +26,15 @@ namespace Diplomska
         {
             using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
             {
+                int top_id = GetChampionId(enemy_top);
+                int jungle_id = GetChampionId(enemy_jungle);
+                int mid_id = GetChampionId(enemy_mid);
+                int adc_id = GetChampionId(enemy_adc);
+                int support_id = GetChampionId(enemy_support);
                 con.Open();
                 int vrni = 0;
-                NpgsqlCommand com = new NpgsqlCommand("INSERT INTO enemy_team(enemy_top, enemy_jungle, enemy_mid, enemy_adc, enemy_support)" +
-                "VALUES('" + enemy_top + "', '" + enemy_jungle + "', '" + enemy_mid + "', '" + enemy_adc + "', '" + enemy_support + "')" +
+                NpgsqlCommand com = new NpgsqlCommand("INSERT INTO enemy_team(top_id, jungle_id, middle_id, adc_id, support_id) " +
+                "VALUES(" + top_id + ", " + jungle_id + ", " + mid_id + ", " + adc_id + ", " + support_id + ") " +
                 "RETURNING enemy_team_id;", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
@@ -62,7 +67,7 @@ namespace Diplomska
             using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM champions WHERE id = " + id + ";", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM champions WHERE champion_id = " + id + ";", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
@@ -78,7 +83,7 @@ namespace Diplomska
             using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT id FROM champions WHERE name = '" + name + "';", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT champion_id FROM champions WHERE champ_name = '" + name + "';", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
@@ -110,7 +115,7 @@ namespace Diplomska
             using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM roles WHERE id = " + id + ";", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM roles WHERE role_id = " + id + ";", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
@@ -126,7 +131,7 @@ namespace Diplomska
             using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT id FROM roles WHERE name = '" + name + "';", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT role_id FROM roles WHERE role_name = '" + name + "';", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
@@ -158,7 +163,7 @@ namespace Diplomska
             using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM summoner_spells WHERE id = " + id + ";", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM summoner_spells WHERE summoner_spell_id = " + id + ";", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
@@ -174,7 +179,7 @@ namespace Diplomska
             using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT id FROM summoner_spells WHERE name = '" + name + "';", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT summoner_spell_id FROM summoner_spells WHERE summoner_spell_name = '" + name + "';", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
@@ -190,7 +195,7 @@ namespace Diplomska
             using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT id, champion_id, role_id, summoner_spell1_id, summoner_spell2_id, kills, deaths, assists, date, creep_score, vision_score, match_lenght, drake, rift_herald, baron, win FROM matches;", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT match_id, champion_id, role_id, summoner_spell1_id, summoner_spell2_id, kills, deaths, assists, date, creep_score, vision_score, match_lenght, drake, rift_herald, baron, win FROM matches;", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {

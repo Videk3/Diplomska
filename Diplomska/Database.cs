@@ -256,5 +256,25 @@ namespace Diplomska
                 return vrni;
             }
         }
+        public List<Champion> GetEnemyTeamByMatch(Match match)
+        {
+            List<Champion> EnemyTeam = new List<Champion>();
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT top_id, jungle_id, middle_id, adc_id, support_id FROM enemy_team WHERE enemy_team_id = " + match.Id + ";", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    EnemyTeam.Add(GetChampion(reader.GetInt32(0)));
+                    EnemyTeam.Add(GetChampion(reader.GetInt32(1)));
+                    EnemyTeam.Add(GetChampion(reader.GetInt32(2)));
+                    EnemyTeam.Add(GetChampion(reader.GetInt32(3)));
+                    EnemyTeam.Add(GetChampion(reader.GetInt32(4)));
+                }
+                con.Close();
+                return EnemyTeam;
+            }
+        }
     }
 }

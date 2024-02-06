@@ -45,6 +45,19 @@ namespace Diplomska
                 return vrni;
             }
         }
+        //ToDo: Fix
+        public void AddItemToMatch(int match_id, string item)
+        {
+            int item_id = GetItemId(item);
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("INSERT INTO match_items(match_id, item_id) " +
+                                   "VALUES(" + match_id + ", " + item_id + ");", con);
+                com.ExecuteNonQuery();
+                con.Close();
+            }
+        }
         public List<Champion> GetChampions()
         {
             List<Champion> vrni = new List<Champion>();
@@ -251,6 +264,22 @@ namespace Diplomska
                 while (reader.Read())
                 {
                     vrni.Add(reader.GetString(0));
+                }
+                con.Close();
+                return vrni;
+            }
+        }
+        public int GetItemId(string item_name)
+        {
+            int vrni = 0;
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT item_id FROM items WHERE item_name = '" + item_name + "';", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    vrni = reader.GetInt32(0);
                 }
                 con.Close();
                 return vrni;

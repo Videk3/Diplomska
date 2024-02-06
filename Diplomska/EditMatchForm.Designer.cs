@@ -98,6 +98,7 @@
             this.saveMatchButton.TabIndex = 81;
             this.saveMatchButton.Text = "Save";
             this.saveMatchButton.UseVisualStyleBackColor = true;
+            this.saveMatchButton.Click += new System.EventHandler(this.saveMatchButton_Click);
             // 
             // label19
             // 

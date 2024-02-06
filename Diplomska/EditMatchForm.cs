@@ -89,5 +89,40 @@ namespace Diplomska
         {
             this.Close();
         }
+
+        private void saveMatchButton_Click(object sender, EventArgs e)
+        {
+            Match match = db.GetMatch(match_id);
+            DateTime date = matchDateTimePicker.Value;
+            string champion = championComboBox.Text;
+            string role = roleComboBox.Text;
+            string summoner_spell1 = summonerSpell1ComboBox.Text;
+            string summoner_spell2 = summonerSpell2ComboBox.Text;
+            int kills = int.Parse(killsTextBox.Text);
+            int deaths = int.Parse(deathsTextBox.Text);
+            int assists = int.Parse(assistsTextBox.Text);
+            int creep_score = int.Parse(creepScoreTextBox.Text);
+            int vision_score = int.Parse(visionScoreTextBox.Text);
+            int match_lenght = int.Parse(matchLenghtTextBox.Text);
+            int drake = int.Parse(drakeTextBox.Text);
+            int rift_herald = int.Parse(riftHeraldTextBox.Text);
+            int baron = int.Parse(baronTextBox.Text);
+            bool win = winCheckBox.Checked;
+            string enemy_top = enemyTopComboBox.Text;
+            string enemy_jungle = enemyJungleComboBox.Text;
+            string enemy_mid = enemyMidComboBox.Text;
+            string enemy_adc = enemyAdcComboBox.Text;
+            string enemy_support = enemySupportComboBox.Text;
+            List<string> items = new List<string>();
+            //Get id's for the values
+            int champion_id = db.GetChampionId(champion);
+            int role_id = db.GetRoleId(role);
+            int summoner_spell1_id = db.GetSummonerSpellId(summoner_spell1);
+            int summoner_spell2_id = db.GetSummonerSpellId(summoner_spell2);
+            int prev_EnemyTeam = match.EnemyTeam;
+            db.DeleteMatchItems(match.Id);
+            db.UpdateMatch(match.Id, champion_id, role_id, summoner_spell1_id, summoner_spell2_id, date, kills, deaths, assists, creep_score, vision_score, match_lenght, drake, rift_herald, baron, enemy_top, enemy_jungle, enemy_mid, enemy_adc, enemy_support, win);
+            db.DeleteEnemyTeam(prev_EnemyTeam);
+        }
     }
 }

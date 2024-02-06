@@ -64,6 +64,16 @@ namespace Diplomska
                 return vrni;
             }
         }
+        public void DeleteEnemyTeam(int id)
+        {
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("DELETE FROM enemy_team WHERE enemy_team_id = " + id + ";", con);
+                com.ExecuteNonQuery();
+                con.Close();
+            }
+        }
         public void AddItemToMatch(int match_id, string item)
         {
             int item_id = GetItemId(item);
@@ -90,6 +100,16 @@ namespace Diplomska
                 }
                 con.Close();
                 return vrni;
+            }
+        }
+        public void DeleteMatchItems(int match_id)
+        {
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("DELETE FROM match_items WHERE match_id = " + match_id + ";", con);
+                com.ExecuteNonQuery();
+                con.Close();
             }
         }
         public List<Champion> GetChampions()

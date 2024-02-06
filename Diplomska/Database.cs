@@ -64,6 +64,22 @@ namespace Diplomska
                 con.Close();
             }
         }
+        public List<string> GetMatchItems(int match_id)
+        {
+            List<string> vrni = new List<string>();
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT item_name FROM items JOIN match_items ON items.item_id = match_items.item_id WHERE match_items.match_id = " + match_id + ";", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    vrni.Add(reader.GetString(0));
+                }
+                con.Close();
+                return vrni;
+            }
+        }
         public List<Champion> GetChampions()
         {
             List<Champion> vrni = new List<Champion>();

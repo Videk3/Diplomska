@@ -10,16 +10,23 @@ namespace Diplomska
 {
     class Database
     {
-        public void AddMatch(int champion, int role, int summoner_spell1, int summoner_spell2, DateTime date, int kills, int deaths, int assists, int creep_score, int vision_score, int match_lenght, int drake, int rift_herald, int baron, string enemy_top, string enemy_jungle, string enemy_mid, string enemy_adc, string enemy_support, bool win)
+        public int AddMatch(int champion, int role, int summoner_spell1, int summoner_spell2, DateTime date, int kills, int deaths, int assists, int creep_score, int vision_score, int match_lenght, int drake, int rift_herald, int baron, string enemy_top, string enemy_jungle, string enemy_mid, string enemy_adc, string enemy_support, bool win)
         {
             int enemy_team_id = AddEnemyTeam(enemy_top, enemy_jungle, enemy_mid, enemy_adc, enemy_support);
             using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
             {
+                int vrni = 0;
                 con.Open();
                 NpgsqlCommand com = new NpgsqlCommand("INSERT INTO matches(date, kills, deaths, assists, creep_score, vision_score, match_lenght, drake, rift_herald, baron, summoner_spell1_id, summoner_spell2_id, champion_id, role_id, enemy_team_id, win)" +
-                "VALUES('" + date + "', '" + kills + "', '" + deaths + "', '" + assists + "', '" + creep_score + "', '" + vision_score + "', '" + match_lenght + "', '" + drake + "', '" + rift_herald + "', '" + baron + "', '" + summoner_spell1 + "', '" + summoner_spell2 + "', '" + champion + "', '" + role + "', '" + enemy_team_id + "', '" + win + "');", con);
-                com.ExecuteNonQuery();
+                "VALUES('" + date + "', '" + kills + "', '" + deaths + "', '" + assists + "', '" + creep_score + "', '" + vision_score + "', '" + match_lenght + "', '" + drake + "', '" + rift_herald + "', '" + baron + "', '" + summoner_spell1 + "', '" + summoner_spell2 + "', '" + champion + "', '" + role + "', '" + enemy_team_id + "', '" + win + "')" +
+                "RETURNING match_id;", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    vrni = reader.GetInt32(0);
+                }
                 con.Close();
+                return vrni;
             }
         }
         public int AddEnemyTeam(string enemy_top, string enemy_jungle, string enemy_mid, string enemy_adc, string enemy_support)
@@ -45,7 +52,6 @@ namespace Diplomska
                 return vrni;
             }
         }
-        //ToDo: Fix
         public void AddItemToMatch(int match_id, string item)
         {
             int item_id = GetItemId(item);

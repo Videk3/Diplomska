@@ -92,6 +92,7 @@ namespace Diplomska
 
         private void saveMatchButton_Click(object sender, EventArgs e)
         {
+            //Get all the new values from the form
             Match match = db.GetMatch(match_id);
             DateTime date = matchDateTimePicker.Value;
             string champion = championComboBox.Text;

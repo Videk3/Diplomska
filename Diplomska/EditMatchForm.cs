@@ -58,6 +58,9 @@ namespace Diplomska
             creepScoreTextBox.Text = match.CreepScore.ToString();
             visionScoreTextBox.Text = match.VisionScore.ToString();
             matchLenghtTextBox.Text = match.MatchLength.ToString();
+            drakeTextBox.Text = match.Drake.ToString();
+            riftHeraldTextBox.Text = match.RiftHerald.ToString();
+            baronTextBox.Text = match.Baron.ToString();
             winCheckBox.Checked = match.Win;
             roleComboBox.SelectedItem = match.Role.Name;
             summonerSpell1ComboBox.SelectedItem = match.SummonerSpell1.Name;
@@ -68,13 +71,11 @@ namespace Diplomska
             enemyMidComboBox.Text = enemyTeam.ElementAt(2).Name.ToString();
             enemyAdcComboBox.Text = enemyTeam.ElementAt(3).Name.ToString();
             enemySupportComboBox.Text = enemyTeam.ElementAt(4).Name.ToString();
-            
-            /*
-            foreach (string item in match.Items)
+            List<string> items = db.GetMatchItems(match.Id);
+            foreach (string item in items)
             {
                 itemsCheckedListBox.SetItemChecked(itemsCheckedListBox.Items.IndexOf(item), true);
             }
-            */
         }
         private void TextBoxes_KeyPress(object sender, KeyPressEventArgs e)
         {

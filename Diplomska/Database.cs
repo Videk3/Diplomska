@@ -29,6 +29,18 @@ namespace Diplomska
                 return vrni;
             }
         }
+        public void UpdateMatch(int id, int champion, int role, int summoner_spell1, int summoner_spell2, DateTime date, int kills, int deaths, int assists, int creep_score, int vision_score, int match_lenght, int drake, int rift_herald, int baron, string enemy_top, string enemy_jungle, string enemy_mid, string enemy_adc, string enemy_support, bool win)
+        {
+            int enemy_team_id = AddEnemyTeam(enemy_top, enemy_jungle, enemy_mid, enemy_adc, enemy_support);
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("UPDATE matches SET date = '" + date + "', kills = '" + kills + "', deaths = '" + deaths + "', assists = '" + assists + "', creep_score = '" + creep_score + "', vision_score = '" + vision_score + "', match_lenght = '" + match_lenght + "', drake = '" + drake + "', rift_herald = '" + rift_herald + "', baron = '" + baron + "', summoner_spell1_id = '" + summoner_spell1 + "', summoner_spell2_id = '" + summoner_spell2 + "', champion_id = '" + champion + "', role_id = '" + role + "', enemy_team_id = '" + enemy_team_id + "', win = '" + win + 
+                    "' WHERE match_id = " + id + ";", con);
+                com.ExecuteNonQuery();
+                con.Close();
+            }
+        }
         public int AddEnemyTeam(string enemy_top, string enemy_jungle, string enemy_mid, string enemy_adc, string enemy_support)
         {
             using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))

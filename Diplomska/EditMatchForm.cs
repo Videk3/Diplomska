@@ -125,5 +125,13 @@ namespace Diplomska
             db.UpdateMatch(match.Id, champion_id, role_id, summoner_spell1_id, summoner_spell2_id, date, kills, deaths, assists, creep_score, vision_score, match_lenght, drake, rift_herald, baron, enemy_top, enemy_jungle, enemy_mid, enemy_adc, enemy_support, win);
             db.DeleteEnemyTeam(prev_EnemyTeam);
         }
+
+        private void itemsCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (itemsCheckedListBox.CheckedItems.Count >= 6)
+            {
+                e.NewValue = CheckState.Unchecked;
+            }
+        }
     }
 }

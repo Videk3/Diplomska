@@ -89,6 +89,7 @@
             this.itemsCheckedListBox.Name = "itemsCheckedListBox";
             this.itemsCheckedListBox.Size = new System.Drawing.Size(281, 274);
             this.itemsCheckedListBox.TabIndex = 82;
+            this.itemsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.itemsCheckedListBox_ItemCheck);
             // 
             // saveMatchButton
             // 

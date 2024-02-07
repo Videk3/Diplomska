@@ -313,7 +313,7 @@ namespace Diplomska
             using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT item_name FROM items;", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT item_name FROM items ORDER BY item_name ASC;", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {

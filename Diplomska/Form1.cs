@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -59,6 +60,9 @@ namespace Diplomska
             if (recordsListView.SelectedItems.Count > 0)
             {
                 int id = (int)recordsListView.SelectedItems[0].Tag;
+                Match match = db.GetMatch(id);
+                db.DeleteMatchItems(id);
+                db.DeleteEnemyTeam(match.EnemyTeam);
                 db.RemoveMatch(id);
             }
         }

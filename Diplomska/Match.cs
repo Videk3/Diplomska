@@ -29,7 +29,7 @@ namespace Diplomska
         public Match()
         {
         }
-        public Match(int id, Champion champion, Role role, SummonerSpell summonerSpell1, SummonerSpell summonerSpell2, int kills, int deaths, int assists, DateTime date, int creepScore, int visionScore, int matchLenght, int drake, int riftHerald, int baron, bool win)
+        public Match(int id, Champion champion, Role role, SummonerSpell summonerSpell1, SummonerSpell summonerSpell2, int kills, int deaths, int assists, DateTime date, int creepScore, int visionScore, int matchLenght, int drake, int riftHerald, int baron, bool win, int enemyTeam)
         {
             Id = id;
             Champion = champion;
@@ -47,6 +47,7 @@ namespace Diplomska
             RiftHerald = riftHerald;
             Baron = baron;
             Win = win;
+            EnemyTeam = enemyTeam;
         }
     }
 }

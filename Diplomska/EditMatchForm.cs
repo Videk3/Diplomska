@@ -16,8 +16,8 @@ namespace Diplomska
         int match_id;
         public EditMatchForm(int id)
         {
-            match_id = id;
             InitializeComponent();
+            match_id = id;
             List<Champion> champions = db.GetChampions();
             List<Role> roles = db.GetRoles();
             List<SummonerSpell> summonerSpells = db.GetSummonerSpells();
@@ -71,7 +71,7 @@ namespace Diplomska
             enemyMidComboBox.Text = enemyTeam.ElementAt(2).Name.ToString();
             enemyAdcComboBox.Text = enemyTeam.ElementAt(3).Name.ToString();
             enemySupportComboBox.Text = enemyTeam.ElementAt(4).Name.ToString();
-            List<string> items = db.GetMatchItems(match.Id);
+            List<string> items = db.GetMatchItems(match_id);
             foreach (string item in items)
             {
                 itemsCheckedListBox.SetItemChecked(itemsCheckedListBox.Items.IndexOf(item), true);

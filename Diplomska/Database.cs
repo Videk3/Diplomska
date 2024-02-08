@@ -35,8 +35,8 @@ namespace Diplomska
             using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("UPDATE matches SET date = '" + date + "', kills = '" + kills + "', deaths = '" + deaths + "', assists = '" + assists + "', creep_score = '" + creep_score + "', vision_score = '" + vision_score + "', match_lenght = '" + match_lenght + "', drake = '" + drake + "', rift_herald = '" + rift_herald + "', baron = '" + baron + "', summoner_spell1_id = '" + summoner_spell1 + "', summoner_spell2_id = '" + summoner_spell2 + "', champion_id = '" + champion + "', role_id = '" + role + "', enemy_team_id = '" + enemy_team_id + "', win = '" + win + 
-                    "' WHERE match_id = " + id + ";", con);
+                NpgsqlCommand com = new NpgsqlCommand("UPDATE matches SET date = '" + date + "', kills = " + kills + ", deaths = " + deaths + ", assists = " + assists + ", creep_score = " + creep_score + ", vision_score = " + vision_score + ", match_lenght = " + match_lenght + ", drake = " + drake + ", rift_herald = " + rift_herald + ", baron = " + baron + ", summoner_spell1_id = " + summoner_spell1 + ", summoner_spell2_id = " + summoner_spell2 + ", champion_id = " + champion + ", role_id = " + role + ", enemy_team_id = " + enemy_team_id + ", win = " + win + 
+                    " WHERE match_id = " + id + ";", con);
                 com.ExecuteNonQuery();
                 con.Close();
             }
@@ -262,7 +262,7 @@ namespace Diplomska
             using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT match_id, champion_id, role_id, summoner_spell1_id, summoner_spell2_id, kills, deaths, assists, date, creep_score, vision_score, match_lenght, drake, rift_herald, baron, win FROM matches;", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT match_id, champion_id, role_id, summoner_spell1_id, summoner_spell2_id, kills, deaths, assists, date, creep_score, vision_score, match_lenght, drake, rift_herald, baron, win, enemy_team_id FROM matches;", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
@@ -270,7 +270,7 @@ namespace Diplomska
                     Role role = GetRole(reader.GetInt32(2));
                     SummonerSpell summonerSpell1 = GetSummonerSpell(reader.GetInt32(3));
                     SummonerSpell summonerSpell2 = GetSummonerSpell(reader.GetInt32(4));
-                    vrni.Add(new Match(reader.GetInt32(0), champ, role, summonerSpell1, summonerSpell2, reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetDateTime(8), reader.GetInt32(9), reader.GetInt32(10), reader.GetInt32(11), reader.GetInt32(12), reader.GetInt32(13), reader.GetInt32(14), reader.GetBoolean(15)));
+                    vrni.Add(new Match(reader.GetInt32(0), champ, role, summonerSpell1, summonerSpell2, reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetDateTime(8), reader.GetInt32(9), reader.GetInt32(10), reader.GetInt32(11), reader.GetInt32(12), reader.GetInt32(13), reader.GetInt32(14), reader.GetBoolean(15), reader.GetInt32(16)));
                 }
                 con.Close();
                 return vrni;
@@ -282,7 +282,7 @@ namespace Diplomska
             using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT match_id, champion_id, role_id, summoner_spell1_id, summoner_spell2_id, kills, deaths, assists, date, creep_score, vision_score, match_lenght, drake, rift_herald, baron, win " +
+                NpgsqlCommand com = new NpgsqlCommand("SELECT match_id, champion_id, role_id, summoner_spell1_id, summoner_spell2_id, kills, deaths, assists, date, creep_score, vision_score, match_lenght, drake, rift_herald, baron, win, enemy_team_id " +
                     "FROM matches WHERE(match_id = " + id + ");", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
@@ -291,7 +291,7 @@ namespace Diplomska
                     Role role = GetRole(reader.GetInt32(2));
                     SummonerSpell summonerSpell1 = GetSummonerSpell(reader.GetInt32(3));
                     SummonerSpell summonerSpell2 = GetSummonerSpell(reader.GetInt32(4));
-                    vrni = new Match(reader.GetInt32(0), champ, role, summonerSpell1, summonerSpell2, reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetDateTime(8), reader.GetInt32(9), reader.GetInt32(10), reader.GetInt32(11), reader.GetInt32(12), reader.GetInt32(13), reader.GetInt32(14), reader.GetBoolean(15));
+                    vrni = new Match(reader.GetInt32(0), champ, role, summonerSpell1, summonerSpell2, reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetDateTime(8), reader.GetInt32(9), reader.GetInt32(10), reader.GetInt32(11), reader.GetInt32(12), reader.GetInt32(13), reader.GetInt32(14), reader.GetBoolean(15), reader.GetInt32(16));
                 }
                 con.Close();
                 return vrni;
@@ -345,7 +345,7 @@ namespace Diplomska
             using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT top_id, jungle_id, middle_id, adc_id, support_id FROM enemy_team WHERE enemy_team_id = " + match.Id + ";", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT top_id, jungle_id, middle_id, adc_id, support_id FROM enemy_team WHERE enemy_team_id = " + match.EnemyTeam + ";", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {

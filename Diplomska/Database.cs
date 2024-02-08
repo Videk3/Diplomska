@@ -266,7 +266,7 @@ namespace Diplomska
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    Champion champ = GetChampion(reader.GetInt32(0));
+                    Champion champ = GetChampion(reader.GetInt32(1));
                     Role role = GetRole(reader.GetInt32(2));
                     SummonerSpell summonerSpell1 = GetSummonerSpell(reader.GetInt32(3));
                     SummonerSpell summonerSpell2 = GetSummonerSpell(reader.GetInt32(4));
@@ -287,7 +287,7 @@ namespace Diplomska
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    Champion champ = GetChampion(reader.GetInt32(0));
+                    Champion champ = GetChampion(reader.GetInt32(1));
                     Role role = GetRole(reader.GetInt32(2));
                     SummonerSpell summonerSpell1 = GetSummonerSpell(reader.GetInt32(3));
                     SummonerSpell summonerSpell2 = GetSummonerSpell(reader.GetInt32(4));

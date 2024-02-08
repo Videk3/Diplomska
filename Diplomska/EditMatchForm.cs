@@ -115,6 +115,10 @@ namespace Diplomska
             string enemy_adc = enemyAdcComboBox.Text;
             string enemy_support = enemySupportComboBox.Text;
             List<string> items = new List<string>();
+            foreach(string item in itemsCheckedListBox.CheckedItems)
+            {
+                items.Add(item);
+            }
             //Get id's for the values
             int champion_id = db.GetChampionId(champion);
             int role_id = db.GetRoleId(role);
@@ -123,6 +127,10 @@ namespace Diplomska
             int prev_EnemyTeam = match.EnemyTeam;
             db.DeleteMatchItems(match.Id);
             db.UpdateMatch(match.Id, champion_id, role_id, summoner_spell1_id, summoner_spell2_id, date, kills, deaths, assists, creep_score, vision_score, match_lenght, drake, rift_herald, baron, enemy_top, enemy_jungle, enemy_mid, enemy_adc, enemy_support, win);
+            foreach(string item in items)
+            {
+                db.AddItemToMatch(match.Id, item);
+            }
             db.DeleteEnemyTeam(prev_EnemyTeam);
         }
 

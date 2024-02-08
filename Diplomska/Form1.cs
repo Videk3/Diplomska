@@ -32,7 +32,7 @@ namespace Diplomska
             matches = db.GetMatches();
             foreach (Match match in matches)
             {
-                   ListViewItem item = new ListViewItem();
+                ListViewItem item = new ListViewItem();
                 item.Tag = match.Id;
                 item.Text = match.Champion.Name.ToString();
                 item.SubItems.Add(match.Date.ToString());

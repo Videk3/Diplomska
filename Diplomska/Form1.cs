@@ -76,5 +76,22 @@ namespace Diplomska
                 editMatchForm.Show();
             }
         }
+
+        private void statisticsAllButton_Click(object sender, EventArgs e)
+        {
+            StatisticsForm statisticsForm = new StatisticsForm();
+            statisticsForm.Show();
+        }
+
+        private void statisticsSelectedMatchButton_Click(object sender, EventArgs e)
+        {
+            int match_id = 0;
+            if (recordsListView.SelectedItems.Count > 0)
+            {
+                match_id = (int)recordsListView.SelectedItems[0].Tag;
+            }
+            StatisticsForm statisticsForm = new StatisticsForm(match_id);
+            statisticsForm.Show();
+        }
     }
 }

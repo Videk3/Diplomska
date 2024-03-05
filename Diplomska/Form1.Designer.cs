@@ -46,6 +46,8 @@
             this.editRecordButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.refreshButton = new System.Windows.Forms.Button();
+            this.statisticsSelectedMatchButton = new System.Windows.Forms.Button();
+            this.statisticsAllButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,7 +137,7 @@
             // 
             this.newMatchButton.Location = new System.Drawing.Point(6, 19);
             this.newMatchButton.Name = "newMatchButton";
-            this.newMatchButton.Size = new System.Drawing.Size(75, 23);
+            this.newMatchButton.Size = new System.Drawing.Size(108, 23);
             this.newMatchButton.TabIndex = 1;
             this.newMatchButton.Text = "New match";
             this.newMatchButton.UseVisualStyleBackColor = true;
@@ -145,7 +147,7 @@
             // 
             this.removeRecordButton.Location = new System.Drawing.Point(6, 48);
             this.removeRecordButton.Name = "removeRecordButton";
-            this.removeRecordButton.Size = new System.Drawing.Size(75, 23);
+            this.removeRecordButton.Size = new System.Drawing.Size(108, 23);
             this.removeRecordButton.TabIndex = 2;
             this.removeRecordButton.Text = "Remove";
             this.removeRecordButton.UseVisualStyleBackColor = true;
@@ -155,7 +157,7 @@
             // 
             this.editRecordButton.Location = new System.Drawing.Point(6, 77);
             this.editRecordButton.Name = "editRecordButton";
-            this.editRecordButton.Size = new System.Drawing.Size(75, 23);
+            this.editRecordButton.Size = new System.Drawing.Size(108, 23);
             this.editRecordButton.TabIndex = 3;
             this.editRecordButton.Text = "Edit";
             this.editRecordButton.UseVisualStyleBackColor = true;
@@ -163,6 +165,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.statisticsAllButton);
+            this.groupBox1.Controls.Add(this.statisticsSelectedMatchButton);
             this.groupBox1.Controls.Add(this.refreshButton);
             this.groupBox1.Controls.Add(this.newMatchButton);
             this.groupBox1.Controls.Add(this.editRecordButton);
@@ -179,11 +183,31 @@
             // 
             this.refreshButton.Location = new System.Drawing.Point(6, 106);
             this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(75, 23);
+            this.refreshButton.Size = new System.Drawing.Size(108, 23);
             this.refreshButton.TabIndex = 4;
             this.refreshButton.Text = "Refresh";
             this.refreshButton.UseVisualStyleBackColor = true;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
+            // statisticsSelectedMatchButton
+            // 
+            this.statisticsSelectedMatchButton.Location = new System.Drawing.Point(6, 135);
+            this.statisticsSelectedMatchButton.Name = "statisticsSelectedMatchButton";
+            this.statisticsSelectedMatchButton.Size = new System.Drawing.Size(108, 23);
+            this.statisticsSelectedMatchButton.TabIndex = 5;
+            this.statisticsSelectedMatchButton.Text = "Statistics (selected)";
+            this.statisticsSelectedMatchButton.UseVisualStyleBackColor = true;
+            this.statisticsSelectedMatchButton.Click += new System.EventHandler(this.statisticsSelectedMatchButton_Click);
+            // 
+            // statisticsAllButton
+            // 
+            this.statisticsAllButton.Location = new System.Drawing.Point(6, 164);
+            this.statisticsAllButton.Name = "statisticsAllButton";
+            this.statisticsAllButton.Size = new System.Drawing.Size(108, 23);
+            this.statisticsAllButton.TabIndex = 6;
+            this.statisticsAllButton.Text = "Statistics (all)";
+            this.statisticsAllButton.UseVisualStyleBackColor = true;
+            this.statisticsAllButton.Click += new System.EventHandler(this.statisticsAllButton_Click);
             // 
             // Form1
             // 
@@ -218,6 +242,8 @@
         private System.Windows.Forms.ColumnHeader winColumnHeader;
         private System.Windows.Forms.ColumnHeader roleColumnHeader;
         private System.Windows.Forms.Button refreshButton;
+        private System.Windows.Forms.Button statisticsAllButton;
+        private System.Windows.Forms.Button statisticsSelectedMatchButton;
     }
 }
 

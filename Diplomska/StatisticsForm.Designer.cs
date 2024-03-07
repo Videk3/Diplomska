@@ -41,7 +41,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.avgDrakesTextBox = new System.Windows.Forms.TextBox();
-            this.avgHeraldTextBox = new System.Windows.Forms.TextBox();
+            this.avgHeraldsTextBox = new System.Windows.Forms.TextBox();
             this.avgCreepScoreTextBox = new System.Windows.Forms.TextBox();
             this.avgBaronsTextBox = new System.Windows.Forms.TextBox();
             this.avgAssistsTextBox = new System.Windows.Forms.TextBox();
@@ -170,13 +170,13 @@
             this.avgDrakesTextBox.Size = new System.Drawing.Size(100, 20);
             this.avgDrakesTextBox.TabIndex = 12;
             // 
-            // avgHeraldTextBox
+            // avgHeraldsTextBox
             // 
-            this.avgHeraldTextBox.Location = new System.Drawing.Point(150, 32);
-            this.avgHeraldTextBox.Name = "avgHeraldTextBox";
-            this.avgHeraldTextBox.ReadOnly = true;
-            this.avgHeraldTextBox.Size = new System.Drawing.Size(100, 20);
-            this.avgHeraldTextBox.TabIndex = 13;
+            this.avgHeraldsTextBox.Location = new System.Drawing.Point(150, 32);
+            this.avgHeraldsTextBox.Name = "avgHeraldsTextBox";
+            this.avgHeraldsTextBox.ReadOnly = true;
+            this.avgHeraldsTextBox.Size = new System.Drawing.Size(100, 20);
+            this.avgHeraldsTextBox.TabIndex = 13;
             // 
             // avgCreepScoreTextBox
             // 
@@ -273,7 +273,7 @@
             this.Controls.Add(this.avgVisionScoreTextBox);
             this.Controls.Add(this.avgCreepScoreTextBox);
             this.Controls.Add(this.avgBaronsTextBox);
-            this.Controls.Add(this.avgHeraldTextBox);
+            this.Controls.Add(this.avgHeraldsTextBox);
             this.Controls.Add(this.avgDrakesTextBox);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -309,7 +309,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox avgDrakesTextBox;
-        private System.Windows.Forms.TextBox avgHeraldTextBox;
+        private System.Windows.Forms.TextBox avgHeraldsTextBox;
         private System.Windows.Forms.TextBox avgCreepScoreTextBox;
         private System.Windows.Forms.TextBox avgBaronsTextBox;
         private System.Windows.Forms.TextBox avgAssistsTextBox;

@@ -359,5 +359,235 @@ namespace Diplomska
                 return EnemyTeam;
             }
         }
+        public int GetMatchCount()
+        {
+            int vrni = 0;
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT COUNT(*) FROM matches;", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    vrni = reader.GetInt32(0);
+                }
+                con.Close();
+                return vrni;
+            }
+        }
+        public int GetMatchCountWon()
+        {
+            int vrni = 0;
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT COUNT(*) FROM matches WHERE win = true;", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    vrni = reader.GetInt32(0);
+                }
+                con.Close();
+                return vrni;
+            }
+        }
+        public int GetDrakeSum()
+        {
+            int vrni = 0;
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT SUM(drake) FROM matches;", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    vrni = reader.GetInt32(0);
+                }
+                con.Close();
+                return vrni;
+            }
+        }
+        public int GetRiftHeraldSum()
+        {
+            int vrni = 0;
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT SUM(rift_herald) FROM matches;", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    vrni = reader.GetInt32(0);
+                }
+                con.Close();
+                return vrni;
+            }
+        }
+        public int GetBaronSum()
+        {
+            int vrni = 0;
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT SUM(baron) FROM matches;", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    vrni = reader.GetInt32(0);
+                }
+                con.Close();
+                return vrni;
+            }
+        }
+        public int GetVisionScoreSum()
+        {
+            int vrni = 0;
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT SUM(vision_score) FROM matches;", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    vrni = reader.GetInt32(0);
+                }
+                con.Close();
+                return vrni;
+            }
+        }
+        public int GetCreepScoreSum()
+        {
+            int vrni = 0;
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT SUM(creep_score) FROM matches;", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    vrni = reader.GetInt32(0);
+                }
+                con.Close();
+                return vrni;
+            }
+        }
+        public int GetKillSum()
+        {
+            int vrni = 0;
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT SUM(kills) FROM matches;", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    vrni = reader.GetInt32(0);
+                }
+                con.Close();
+                return vrni;
+            }
+        }
+        public int GetDeathSum()
+        {
+            int vrni = 0;
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT SUM(deaths) FROM matches;", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    vrni = reader.GetInt32(0);
+                }
+                con.Close();
+                return vrni;
+            }
+        }
+        public int GetAssistSum()
+        {
+            int vrni = 0;
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT SUM(assists) FROM matches;", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    vrni = reader.GetInt32(0);
+                }
+                con.Close();
+                return vrni;
+            }
+        }
+        public int GetMatchLenghtSum()
+        {
+            int vrni = 0;
+            using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT SUM(match_lenght) FROM matches;", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    vrni = reader.GetInt32(0);
+                }
+                con.Close();
+                return vrni;
+            }
+        }
+        public Role GetMostPlayedRole()
+        {
+            Role vrni = null;
+            int max = 0;
+            List<Role> roles = GetRoles();
+            foreach (Role role in roles)
+            {
+                int count = 0;
+                using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+                {
+                    con.Open();
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT COUNT(*) FROM matches WHERE role_id = " + role.Id + ";", con);
+                    NpgsqlDataReader reader = com.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        count = reader.GetInt32(0);
+                    }
+                    con.Close();
+                }
+                if (count > max)
+                {
+                    max = count;
+                    vrni = role;
+                }
+            }
+            return vrni;
+        }
+        public Champion GetMostPlayedChampion()
+        {
+            Champion vrni = null;
+            int max = 0;
+            List<Champion> champions = GetChampions();
+            foreach (Champion champion in champions)
+            {
+                int count = 0;
+                using (NpgsqlConnection con = new NpgsqlConnection("Server=localhost; User Id=postgres; Password=postgres; Database=diplomska_db;"))
+                {
+                    con.Open();
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT COUNT(*) FROM matches WHERE champion_id = " + champion.Id + ";", con);
+                    NpgsqlDataReader reader = com.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        count = reader.GetInt32(0);
+                    }
+                    con.Close();
+                }
+                if (count > max)
+                {
+                    max = count;
+                    vrni = champion;
+                }
+            }
+            return vrni;
+        }
     }
 }

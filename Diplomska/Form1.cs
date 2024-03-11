@@ -83,15 +83,14 @@ namespace Diplomska
             statisticsForm.Show();
         }
 
-        private void statisticsSelectedMatchButton_Click(object sender, EventArgs e)
+        private void viewButton_Click(object sender, EventArgs e)
         {
-            int match_id = 0;
             if (recordsListView.SelectedItems.Count > 0)
             {
-                match_id = (int)recordsListView.SelectedItems[0].Tag;
+                int id = (int)recordsListView.SelectedItems[0].Tag;
+                EditMatchForm editMatchForm = new EditMatchForm(id, true);
+                editMatchForm.Show();
             }
-            StatisticsForm statisticsForm = new StatisticsForm(match_id);
-            statisticsForm.Show();
         }
     }
 }

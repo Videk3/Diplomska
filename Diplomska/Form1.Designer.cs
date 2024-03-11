@@ -45,9 +45,9 @@
             this.removeRecordButton = new System.Windows.Forms.Button();
             this.editRecordButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.refreshButton = new System.Windows.Forms.Button();
-            this.statisticsSelectedMatchButton = new System.Windows.Forms.Button();
             this.statisticsAllButton = new System.Windows.Forms.Button();
+            this.refreshButton = new System.Windows.Forms.Button();
+            this.viewButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -165,8 +165,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.viewButton);
             this.groupBox1.Controls.Add(this.statisticsAllButton);
-            this.groupBox1.Controls.Add(this.statisticsSelectedMatchButton);
             this.groupBox1.Controls.Add(this.refreshButton);
             this.groupBox1.Controls.Add(this.newMatchButton);
             this.groupBox1.Controls.Add(this.editRecordButton);
@@ -179,6 +179,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
+            // statisticsAllButton
+            // 
+            this.statisticsAllButton.Location = new System.Drawing.Point(6, 135);
+            this.statisticsAllButton.Name = "statisticsAllButton";
+            this.statisticsAllButton.Size = new System.Drawing.Size(108, 23);
+            this.statisticsAllButton.TabIndex = 6;
+            this.statisticsAllButton.Text = "Statistics (all)";
+            this.statisticsAllButton.UseVisualStyleBackColor = true;
+            this.statisticsAllButton.Click += new System.EventHandler(this.statisticsAllButton_Click);
+            // 
             // refreshButton
             // 
             this.refreshButton.Location = new System.Drawing.Point(6, 106);
@@ -189,25 +199,15 @@
             this.refreshButton.UseVisualStyleBackColor = true;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
-            // statisticsSelectedMatchButton
+            // viewButton
             // 
-            this.statisticsSelectedMatchButton.Location = new System.Drawing.Point(6, 135);
-            this.statisticsSelectedMatchButton.Name = "statisticsSelectedMatchButton";
-            this.statisticsSelectedMatchButton.Size = new System.Drawing.Size(108, 23);
-            this.statisticsSelectedMatchButton.TabIndex = 5;
-            this.statisticsSelectedMatchButton.Text = "Statistics (selected)";
-            this.statisticsSelectedMatchButton.UseVisualStyleBackColor = true;
-            this.statisticsSelectedMatchButton.Click += new System.EventHandler(this.statisticsSelectedMatchButton_Click);
-            // 
-            // statisticsAllButton
-            // 
-            this.statisticsAllButton.Location = new System.Drawing.Point(6, 164);
-            this.statisticsAllButton.Name = "statisticsAllButton";
-            this.statisticsAllButton.Size = new System.Drawing.Size(108, 23);
-            this.statisticsAllButton.TabIndex = 6;
-            this.statisticsAllButton.Text = "Statistics (all)";
-            this.statisticsAllButton.UseVisualStyleBackColor = true;
-            this.statisticsAllButton.Click += new System.EventHandler(this.statisticsAllButton_Click);
+            this.viewButton.Location = new System.Drawing.Point(6, 164);
+            this.viewButton.Name = "viewButton";
+            this.viewButton.Size = new System.Drawing.Size(108, 23);
+            this.viewButton.TabIndex = 7;
+            this.viewButton.Text = "View";
+            this.viewButton.UseVisualStyleBackColor = true;
+            this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
             // 
             // Form1
             // 
@@ -243,7 +243,7 @@
         private System.Windows.Forms.ColumnHeader roleColumnHeader;
         private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.Button statisticsAllButton;
-        private System.Windows.Forms.Button statisticsSelectedMatchButton;
+        private System.Windows.Forms.Button viewButton;
     }
 }
 

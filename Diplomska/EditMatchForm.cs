@@ -14,6 +14,7 @@ namespace Diplomska
     {
         Database db = new Database();
         int match_id;
+
         public EditMatchForm(int id)
         {
             InitializeComponent();
@@ -46,7 +47,39 @@ namespace Diplomska
             }
             FillData(match_id);
         }
-        //WIP
+        public EditMatchForm(int id, bool readOnly)
+        {
+            InitializeComponent();
+            match_id = id;
+            List<Champion> champions = db.GetChampions();
+            List<Role> roles = db.GetRoles();
+            List<SummonerSpell> summonerSpells = db.GetSummonerSpells();
+            List<string> items = db.GetItems();
+            foreach (Champion champion in champions)
+            {
+                championComboBox.Items.Add(champion.Name);
+                enemyTopComboBox.Items.Add(champion.Name);
+                enemyJungleComboBox.Items.Add(champion.Name);
+                enemyMidComboBox.Items.Add(champion.Name);
+                enemyAdcComboBox.Items.Add(champion.Name);
+                enemySupportComboBox.Items.Add(champion.Name);
+            }
+            foreach (Role role in roles)
+            {
+                roleComboBox.Items.Add(role.Name);
+            }
+            foreach (SummonerSpell summonerSpell in summonerSpells)
+            {
+                summonerSpell1ComboBox.Items.Add(summonerSpell.Name);
+                summonerSpell2ComboBox.Items.Add(summonerSpell.Name);
+            }
+            foreach (string item in items)
+            {
+                itemsCheckedListBox.Items.Add(item);
+            }
+            FillData(match_id);
+            setReadOnly();
+        }
         private void FillData(int id)
         {
             Match match = db.GetMatch(id);
@@ -140,6 +173,31 @@ namespace Diplomska
             {
                 e.NewValue = CheckState.Unchecked;
             }
+        }
+        private void setReadOnly() 
+        {   
+            championComboBox.Enabled = false;
+            matchDateTimePicker.Enabled = false;
+            killsTextBox.ReadOnly = true;
+            deathsTextBox.ReadOnly = true;
+            assistsTextBox.ReadOnly = true;
+            creepScoreTextBox.ReadOnly = true;
+            visionScoreTextBox.ReadOnly = true;
+            matchLenghtTextBox.ReadOnly = true;
+            drakeTextBox.ReadOnly = true;
+            riftHeraldTextBox.ReadOnly = true;
+            baronTextBox.ReadOnly = true;
+            winCheckBox.Enabled = false;
+            roleComboBox.Enabled = false;
+            summonerSpell1ComboBox.Enabled = false;
+            summonerSpell2ComboBox.Enabled = false;
+            enemyTopComboBox.Enabled = false;
+            enemyJungleComboBox.Enabled = false;
+            enemyMidComboBox.Enabled = false;
+            enemyAdcComboBox.Enabled = false;
+            enemySupportComboBox.Enabled = false;
+            saveMatchButton.Visible = false;
+            cancelMatchButton.Text = "Close";
         }
     }
 }

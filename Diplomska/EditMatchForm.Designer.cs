@@ -481,7 +481,7 @@
             this.Controls.Add(this.roleComboBox);
             this.Controls.Add(this.matchDateTimePicker);
             this.Name = "EditMatchForm";
-            this.Text = "EditMatchForm";
+            this.Text = "Edit match";
             this.ResumeLayout(false);
             this.PerformLayout();
 

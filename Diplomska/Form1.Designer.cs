@@ -217,7 +217,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.recordsListView);
             this.Name = "Form1";
-            this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 

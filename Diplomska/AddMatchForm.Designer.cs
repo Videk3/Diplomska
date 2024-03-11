@@ -469,7 +469,7 @@
             this.Controls.Add(this.roleComboBox);
             this.Controls.Add(this.matchDateTimePicker);
             this.Name = "AddMatchForm";
-            this.Text = "AddMatchForm";
+            this.Text = "Add new match";
             this.ResumeLayout(false);
             this.PerformLayout();
 

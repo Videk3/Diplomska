@@ -198,6 +198,7 @@ namespace Diplomska
             enemySupportComboBox.Enabled = false;
             saveMatchButton.Visible = false;
             cancelMatchButton.Text = "Close";
+            this.Text = "View match";
         }
     }
 }

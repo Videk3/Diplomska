@@ -45,14 +45,16 @@
             this.removeRecordButton = new System.Windows.Forms.Button();
             this.editRecordButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.viewButton = new System.Windows.Forms.Button();
             this.statisticsAllButton = new System.Windows.Forms.Button();
             this.refreshButton = new System.Windows.Forms.Button();
-            this.viewButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // recordsListView
             // 
+            this.recordsListView.BackColor = System.Drawing.Color.DarkGray;
+            this.recordsListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.recordsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.championColumnHeader,
             this.dateColumnHeader,
@@ -66,7 +68,9 @@
             this.roleColumnHeader});
             this.recordsListView.Dock = System.Windows.Forms.DockStyle.Left;
             this.recordsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recordsListView.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.recordsListView.FullRowSelect = true;
+            this.recordsListView.GridLines = true;
             this.recordsListView.HideSelection = false;
             this.recordsListView.Location = new System.Drawing.Point(0, 0);
             this.recordsListView.MultiSelect = false;
@@ -177,7 +181,16 @@
             this.groupBox1.Size = new System.Drawing.Size(255, 661);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            // 
+            // viewButton
+            // 
+            this.viewButton.Location = new System.Drawing.Point(6, 164);
+            this.viewButton.Name = "viewButton";
+            this.viewButton.Size = new System.Drawing.Size(108, 23);
+            this.viewButton.TabIndex = 7;
+            this.viewButton.Text = "View";
+            this.viewButton.UseVisualStyleBackColor = true;
+            this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
             // 
             // statisticsAllButton
             // 
@@ -199,23 +212,15 @@
             this.refreshButton.UseVisualStyleBackColor = true;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
-            // viewButton
-            // 
-            this.viewButton.Location = new System.Drawing.Point(6, 164);
-            this.viewButton.Name = "viewButton";
-            this.viewButton.Size = new System.Drawing.Size(108, 23);
-            this.viewButton.TabIndex = 7;
-            this.viewButton.Text = "View";
-            this.viewButton.UseVisualStyleBackColor = true;
-            this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1184, 661);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.recordsListView);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

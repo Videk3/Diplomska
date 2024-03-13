@@ -426,6 +426,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1075, 450);
             this.Controls.Add(this.winCheckBox);
             this.Controls.Add(this.itemsCheckedListBox);
@@ -468,6 +469,7 @@
             this.Controls.Add(this.championComboBox);
             this.Controls.Add(this.roleComboBox);
             this.Controls.Add(this.matchDateTimePicker);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddMatchForm";
             this.Text = "Add new match";
             this.ResumeLayout(false);

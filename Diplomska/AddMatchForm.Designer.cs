@@ -53,7 +53,7 @@
             this.assistsTextBox = new System.Windows.Forms.TextBox();
             this.creepScoreTextBox = new System.Windows.Forms.TextBox();
             this.visionScoreTextBox = new System.Windows.Forms.TextBox();
-            this.matchLenghtTextBox = new System.Windows.Forms.TextBox();
+            this.matchLengthTextBox = new System.Windows.Forms.TextBox();
             this.drakeTextBox = new System.Windows.Forms.TextBox();
             this.riftHeraldTextBox = new System.Windows.Forms.TextBox();
             this.baronTextBox = new System.Windows.Forms.TextBox();
@@ -280,13 +280,13 @@
             this.visionScoreTextBox.TabIndex = 25;
             this.visionScoreTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxes_KeyPress);
             // 
-            // matchLenghtTextBox
+            // matchLengthTextBox
             // 
-            this.matchLenghtTextBox.Location = new System.Drawing.Point(429, 175);
-            this.matchLenghtTextBox.Name = "matchLenghtTextBox";
-            this.matchLenghtTextBox.Size = new System.Drawing.Size(100, 20);
-            this.matchLenghtTextBox.TabIndex = 26;
-            this.matchLenghtTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxes_KeyPress);
+            this.matchLengthTextBox.Location = new System.Drawing.Point(429, 175);
+            this.matchLengthTextBox.Name = "matchLengthTextBox";
+            this.matchLengthTextBox.Size = new System.Drawing.Size(100, 20);
+            this.matchLengthTextBox.TabIndex = 26;
+            this.matchLengthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxes_KeyPress);
             // 
             // drakeTextBox
             // 
@@ -443,7 +443,7 @@
             this.Controls.Add(this.baronTextBox);
             this.Controls.Add(this.riftHeraldTextBox);
             this.Controls.Add(this.drakeTextBox);
-            this.Controls.Add(this.matchLenghtTextBox);
+            this.Controls.Add(this.matchLengthTextBox);
             this.Controls.Add(this.visionScoreTextBox);
             this.Controls.Add(this.creepScoreTextBox);
             this.Controls.Add(this.assistsTextBox);
@@ -504,7 +504,7 @@
         private System.Windows.Forms.TextBox assistsTextBox;
         private System.Windows.Forms.TextBox creepScoreTextBox;
         private System.Windows.Forms.TextBox visionScoreTextBox;
-        private System.Windows.Forms.TextBox matchLenghtTextBox;
+        private System.Windows.Forms.TextBox matchLengthTextBox;
         private System.Windows.Forms.TextBox drakeTextBox;
         private System.Windows.Forms.TextBox riftHeraldTextBox;
         private System.Windows.Forms.TextBox baronTextBox;

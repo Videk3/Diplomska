@@ -12,14 +12,21 @@ namespace Diplomska
 {
     public partial class AddMatchForm : Form
     {
+        // Database instance
         Database db = new Database();
+
         public AddMatchForm()
         {
+            // Initialize the form components
             InitializeComponent();
+
+            // Retrieve champions, roles, summoner spells, and items from the database
             List<Champion> champions = db.GetChampions();
             List<Role> roles = db.GetRoles();
             List<SummonerSpell> summonerSpells = db.GetSummonerSpells();
             List<string> items = db.GetItems();
+
+            // Populate dropdowns with champions, roles, and summoner spells
             foreach (Champion champion in champions)
             {
                 championComboBox.Items.Add(champion.Name);
@@ -38,12 +45,15 @@ namespace Diplomska
                 summonerSpell1ComboBox.Items.Add(summonerSpell.Name);
                 summonerSpell2ComboBox.Items.Add(summonerSpell.Name);
             }
+
+            // Populate items list
             foreach (string item in items)
             {
                 itemsCheckedListBox.Items.Add(item);
             }
         }
 
+        // Event handler for allowing only numeric input in certain textboxes
         private void TextBoxes_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -52,17 +62,19 @@ namespace Diplomska
             }
         }
 
+        // Event handler to limit the number of checked items in the itemsCheckedListBox
         private void itemsCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            if(itemsCheckedListBox.CheckedItems.Count >= 6)
+            if (itemsCheckedListBox.CheckedItems.Count >= 6)
             {
                 e.NewValue = CheckState.Unchecked;
             }
         }
 
+        // Event handler for adding a match to the database
         private void addMatchButton_Click(object sender, EventArgs e)
         {
-            //Get all the values from the form
+            // Get all the values from the form
             DateTime date = matchDateTimePicker.Value;
             string champion = championComboBox.Text;
             string role = roleComboBox.Text;
@@ -73,7 +85,7 @@ namespace Diplomska
             int assists = int.Parse(assistsTextBox.Text);
             int creep_score = int.Parse(creepScoreTextBox.Text);
             int vision_score = int.Parse(visionScoreTextBox.Text);
-            int match_lenght = int.Parse(matchLenghtTextBox.Text);
+            int match_length = int.Parse(matchLengthTextBox.Text); // Corrected variable name
             int drake = int.Parse(drakeTextBox.Text);
             int rift_herald = int.Parse(riftHeraldTextBox.Text);
             int baron = int.Parse(baronTextBox.Text);
@@ -84,14 +96,17 @@ namespace Diplomska
             string enemy_adc = enemyAdcComboBox.Text;
             string enemy_support = enemySupportComboBox.Text;
             List<string> items = new List<string>();
-            //Get id's for the values
+
+            // Get IDs for the values from the database
             int champion_id = db.GetChampionId(champion);
             int role_id = db.GetRoleId(role);
             int summoner_spell1_id = db.GetSummonerSpellId(summoner_spell1);
             int summoner_spell2_id = db.GetSummonerSpellId(summoner_spell2);
-            //Add the match to the database
-            int match_id = db.AddMatch(champion_id, role_id, summoner_spell1_id, summoner_spell2_id, date, kills, deaths, assists, creep_score, vision_score, match_lenght, drake, rift_herald, baron, enemy_top, enemy_jungle, enemy_mid, enemy_adc, enemy_support, win);
-            //Add the items to the match
+
+            // Add the match to the database
+            int match_id = db.AddMatch(champion_id, role_id, summoner_spell1_id, summoner_spell2_id, date, kills, deaths, assists, creep_score, vision_score, match_length, drake, rift_herald, baron, enemy_top, enemy_jungle, enemy_mid, enemy_adc, enemy_support, win);
+
+            // Add the items to the match
             foreach (string item in itemsCheckedListBox.CheckedItems)
             {
                 db.AddItemToMatch(match_id, item);

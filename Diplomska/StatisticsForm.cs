@@ -12,17 +12,10 @@ namespace Diplomska
 {
     public partial class StatisticsForm : Form
     {
+        // Database instance
         Database db = new Database();
-        public StatisticsForm()
-        {
-            InitializeComponent();
-            LoadStats();
-            FillData();
-        }
-        public StatisticsForm(int match_id)
-        {
-            InitializeComponent();
-        }
+
+        // Variables to store statistics
         int avgDrakes;
         int avgHeralds;
         int avgBarons;
@@ -36,9 +29,30 @@ namespace Diplomska
         int winCount;
         Role role = new Role();
         Champion champion = new Champion();
+
+        // Constructor
+        public StatisticsForm()
+        {
+            InitializeComponent();
+
+            // Load statistics and fill data
+            LoadStats();
+            FillData();
+        }
+
+        // Overloaded constructor
+        public StatisticsForm(int match_id)
+        {
+            InitializeComponent();
+        }
+
+        // Method to load statistics from the database
         void LoadStats()
         {
+            // Get total number of matches
             matchCount = db.GetMatchCount();
+
+            // Calculate average statistics
             avgDrakes = db.GetDrakeSum() / matchCount;
             avgHeralds = db.GetRiftHeraldSum() / matchCount;
             avgBarons = db.GetBaronSum() / matchCount;
@@ -48,10 +62,16 @@ namespace Diplomska
             avgDeaths = db.GetDeathSum() / matchCount;
             avgAssists = db.GetAssistSum() / matchCount;
             avgMatchLength = db.GetMatchLenghtSum() / matchCount;
+
+            // Get total number of wins
             winCount = db.GetMatchCountWon();
+
+            // Get most played role and champion
             role = db.GetMostPlayedRole();
             champion = db.GetMostPlayedChampion();
         }
+
+        // Method to fill data in the form
         void FillData()
         {
             avgDrakesTextBox.Text = avgDrakes.ToString();
@@ -63,7 +83,11 @@ namespace Diplomska
             avgDeathsTextBox.Text = avgDeaths.ToString();
             avgAssistsTextBox.Text = avgAssists.ToString();
             avgMatchLenghtTextBox.Text = avgMatchLength.ToString();
+
+            // Calculate and display win percentage
             winPercentageTextBox.Text = ((winCount * 100) / matchCount).ToString() + "%";
+
+            // Display most played role and champion
             mostPlayedRoleTextBox.Text = role.Name;
             mostPlayedChampionTextBox.Text = champion.Name;
         }
